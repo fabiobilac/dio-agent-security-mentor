@@ -1,0 +1,12 @@
+Validação local do exemplo educativo — comando: python3 -m unittest discover -s tests -v
+Escopo: SQLite :memory:, sem acesso de rede.
+
+test_secure_login_accepts_valid_demo_credentials (test_sql_injection_demo.SQLInjectionDemoTests.test_secure_login_accepts_valid_demo_credentials) ... ok
+test_secure_login_rejects_invalid_credentials_and_injection_string (test_sql_injection_demo.SQLInjectionDemoTests.test_secure_login_rejects_invalid_credentials_and_injection_string) ... ok
+test_vulnerable_login_accepts_valid_demo_credentials (test_sql_injection_demo.SQLInjectionDemoTests.test_vulnerable_login_accepts_valid_demo_credentials) ... ok
+test_vulnerable_login_can_be_bypassed_in_local_demo (test_sql_injection_demo.SQLInjectionDemoTests.test_vulnerable_login_can_be_bypassed_in_local_demo) ... ok
+
+----------------------------------------------------------------------
+Ran 4 tests in 0.001s
+
+OK

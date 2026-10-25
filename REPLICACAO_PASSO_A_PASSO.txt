@@ -11,10 +11,12 @@ evidências reais e publicar o resultado em um repositório público do GitHub.
 Repositório público desta entrega:
     https://github.com/fabiobilac/dio-agent-security-mentor
 
-Os arquivos e testes estão preparados no diretório do projeto e a publicação foi
-realizada. As instruções da última seção servem para reproduzir o processo em uma
-outra conta ou publicar uma cópia própria; não tente criar novamente o mesmo
-repositório na conta acima.
+O repositório público foi criado e contém a documentação e a skill, mas a cópia
+publicada ainda não inclui toda a árvore do projeto. O envio final de todos os arquivos
+foi recusado pelo GitHub com erro 403 de permissão de escrita do conector. A entrega
+completa está no ZIP do projeto; a seção 12-A explica como sobrepor os arquivos ao clone
+existente e concluir o push com uma sessão GitHub que tenha permissão Contents: write.
+Não crie outro repositório com o mesmo nome nem cole tokens/senhas em chat ou arquivos.
 
 1. PRÉ-REQUISITOS
 -----------------
@@ -297,6 +299,40 @@ Se receber erro de identidade do Git, configure nome e e-mail somente neste repo
 - [ ] Capturas, se houver, são reais e não contêm segredos ou dados pessoais.
 - [ ] Nenhum teste foi feito contra ativo de terceiros.
 - [ ] O endereço publicado foi copiado e conferido na página do GitHub.
+
+12-A. COMPLETAR O REPOSITÓRIO PÚBLICO DESTA ENTREGA
+----------------------------------------------------
+Use esta seção quando quiser sincronizar a árvore completa do ZIP com o repositório
+que já existe. Ela preserva os commits publicados e evita tentar criar o repositório
+novamente. O arquivo ZIP deve conter os arquivos do projeto diretamente na raiz (sem
+uma pasta adicional envolvendo todo o conteúdo).
+
+Linux/macOS (ajuste o caminho do ZIP se ele estiver em outra pasta):
+    git clone https://github.com/fabiobilac/dio-agent-security-mentor.git dio-agent-security-mentor-publish
+    unzip -o ~/Downloads/dio-agent-security-mentor-entrega.zip -d dio-agent-security-mentor-publish
+    cd dio-agent-security-mentor-publish
+    python3 -m unittest discover -s tests -v
+    git status --short
+    git add -A
+    git commit -m "feat: publish complete defensive AppSec project"
+    git push origin main
+
+Windows PowerShell (ajuste o caminho do ZIP para o local onde foi salvo):
+    git clone https://github.com/fabiobilac/dio-agent-security-mentor.git .\dio-agent-security-mentor-publish
+    Expand-Archive -LiteralPath "$HOME\Downloads\dio-agent-security-mentor-entrega.zip" -DestinationPath .\dio-agent-security-mentor-publish -Force
+    Set-Location .\dio-agent-security-mentor-publish
+    py -3 -m unittest discover -s tests -v
+    git status --short
+    git add -A
+    git commit -m "feat: publish complete defensive AppSec project"
+    git push origin main
+
+Antes do push, autentique o GitHub CLI ou Git Credential Manager na sua própria
+máquina, usando a conta proprietária e concedendo acesso de escrita ao conteúdo deste
+repositório. Se receber HTTP 403 ou "Permission denied", interrompa e corrija a
+permissão Contents: read/write na integração/credencial; não tente contornar o controle
+de acesso e não compartilhe token. Depois do push, atualize a página do repositório e
+confirme que examples/, tests/ e as skills originais aparecem junto aos documentos.
 
 Quando publicar, inclua o link da raiz do repositório ao enviar o desafio. Pode também
 compartilhar o projeto no LinkedIn, depois de revisar cuidadosamente as evidências.
